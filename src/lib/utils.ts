@@ -6,10 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatPhoneLink(phone: string) {
-  const digits = phone.replace(/[^\d]/g, "");
-  if (digits.length === 10) return `+1${digits}`;
-  if (digits.length === 11 && digits.startsWith("1")) return `+${digits}`;
-  return digits;
+  return phone.replace(/[^\d]/g, "");
 }
 
 export function getPhoneTelHref(phone: string) {

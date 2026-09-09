@@ -40,9 +40,9 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
             exit={{ clipPath: "circle(0% at 100% 0%)" }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="flex flex-col h-full pt-24 px-6 pb-8">
-              <div className="mb-8">
-                <ShieldLogo size="lg" />
+            <div className="flex flex-col h-full pt-[5.5rem] px-5 sm:px-6 pb-8 safe-top safe-bottom">
+              <div className="mb-8 flex justify-center sm:justify-start">
+                <ShieldLogo size="footer" />
               </div>
 
               <nav className="flex-grow space-y-1" aria-label="Mobile navigation">

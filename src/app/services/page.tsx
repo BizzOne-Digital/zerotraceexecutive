@@ -9,7 +9,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata(
   "Executive Privacy Services",
-  "Comprehensive executive digital exposure assessment, credential diagnostics, data-broker review, and ongoing privacy monitoring for senior leaders.",
+  "Comprehensive digital exposure assessment, credential diagnostics, data-broker review, and ongoing privacy monitoring for executives, families, and individuals.",
   "/services"
 );
 
@@ -23,11 +23,11 @@ export default function ServicesPage() {
           <SectionReveal>
             <p className="label-caps text-gold/70 mb-4">Our Capabilities</p>
             <AnimatedHeading as="h1" className="text-3xl sm:text-4xl lg:text-6xl mb-4 sm:mb-6">
-              Executive Privacy Services
+              Privacy & Digital-Risk Services
             </AnimatedHeading>
             <p className="text-steel text-sm sm:text-base lg:text-lg max-w-2xl mx-auto">
-              Comprehensive digital-risk assessment and protection services designed
-              exclusively for executive-level privacy requirements.
+              Comprehensive digital-risk assessment and protection services for
+              executives, families, and individuals — not limited to the C-suite.
             </p>
           </SectionReveal>
         </div>

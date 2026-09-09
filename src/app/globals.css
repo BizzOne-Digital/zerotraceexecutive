@@ -39,6 +39,8 @@
     overflow-x: clip;
     max-width: 100%;
     position: relative;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(212, 175, 55, 0.15);
   }
 
   *,
@@ -126,7 +128,7 @@
   .section-eyebrow::before,
   .section-eyebrow::after {
     content: "";
-    @apply h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-gold/40;
+    @apply hidden sm:block h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-gold/40;
   }
 
   .section-eyebrow::after {
@@ -144,6 +146,16 @@
 
   .section-pad {
     @apply px-4 sm:px-6 lg:px-8;
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
   .secure-grid-bg {
@@ -213,6 +225,11 @@
 }
 
 @layer utilities {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;

@@ -15,12 +15,12 @@ export function StatsSection() {
         <SectionReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <p className="section-eyebrow justify-center">Industry Intelligence</p>
           <AnimatedHeading className="text-2xl sm:text-3xl lg:text-5xl mb-4 sm:mb-6">
-            We Are Digital Executive Protection
+            Digital Privacy Protection for Everyone Who Needs It
           </AnimatedHeading>
           <p className="text-steel text-sm sm:text-base lg:text-lg leading-relaxed">
-            Our specialist cybersecurity expertise and concierge support is tailored
-            to protect the personal privacy, devices, and digital lives of every
-            client — delivering peace of mind in an increasingly connected world.
+            Our specialist cybersecurity expertise and concierge support protects
+            executives, families, and individuals alike — safeguarding personal
+            privacy, devices, and digital lives with the same discretion and rigor.
           </p>
         </SectionReveal>
 

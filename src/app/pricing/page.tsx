@@ -14,7 +14,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata(
   "Executive Privacy Pricing",
-  "Executive Audit & Diagnostics from $999 and Active Protection Retainer at $149/month. Transparent pricing for C-suite privacy services in Ontario.",
+  "Executive Audit & Diagnostics from $999 and Active Protection Retainer at $149/month. Transparent pricing for executives, families, and individuals in Ontario.",
   "/pricing"
 );
 
@@ -28,11 +28,11 @@ export default function PricingPage() {
           <SectionReveal>
             <p className="label-caps text-gold/70 mb-4">Investment</p>
             <AnimatedHeading as="h1" className="text-3xl sm:text-4xl lg:text-6xl mb-4 sm:mb-6">
-              Executive Protection Pricing
+              Privacy Protection Pricing
             </AnimatedHeading>
             <p className="text-steel text-sm sm:text-base lg:text-lg max-w-2xl mx-auto">
-              Two distinct engagement options designed for different stages of your
-              executive privacy journey.
+              Two distinct engagement options for executives, families, and individuals
+              at different stages of their privacy journey.
             </p>
           </SectionReveal>
         </div>

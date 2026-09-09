@@ -5,7 +5,7 @@ import { AudienceCard } from "@/components/AudienceCard";
 import { ConfidentialCTA } from "@/components/ConfidentialCTA";
 import { SecureGrid } from "@/components/SecureGrid";
 import { LegalDisclaimer } from "@/components/LegalDisclaimer";
-import { audiences } from "@/data/audiences";
+import { audiences, audienceIntro } from "@/data/audiences";
 import { principles } from "@/data/why-us";
 import { legalDisclaimer } from "@/data/contact";
 import { images } from "@/data/images";
@@ -13,7 +13,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata(
   "About Zerotrace Executive",
-  "Learn about Zerotrace Executive's privacy-first approach to executive digital-risk protection. Ontario-based service for C-suite leaders and high-net-worth individuals.",
+  "Learn about Zerotrace Executive's privacy-first approach to digital-risk protection. Ontario-based service for executives, families, and individuals across Canada.",
   "/about"
 );
 
@@ -21,12 +21,12 @@ const aboutSections = [
   {
     title: "Why Zerotrace Executive Exists",
     content:
-      "Senior leaders operate in an environment where personal information has become a strategic asset—for both protection and exploitation. Zerotrace Executive was created to give executives the same level of strategic awareness about their digital exposure that they apply to every other dimension of their professional lives.",
+      "Personal information has become a strategic asset—for both protection and exploitation. Zerotrace Executive was created to give clients the same level of strategic awareness about their digital exposure that they apply to every other dimension of their lives, whether they lead a company, run a household, or simply want greater privacy.",
   },
   {
     title: "The Executive Risk Landscape",
     content:
-      "The modern executive faces a unique convergence of risks: public corporate filings, media coverage, professional networks, property records, and data-broker aggregations can collectively reveal far more than any single source. Understanding how these elements connect is the foundation of effective executive privacy.",
+      "Today's privacy risks come from many directions: public records, social media, professional networks, property filings, and data-broker aggregations can collectively reveal far more than any single source. Understanding how these elements connect is the foundation of effective digital privacy—for leaders and families alike.",
   },
   {
     title: "Our Privacy-First Approach",
@@ -36,7 +36,7 @@ const aboutSections = [
   {
     title: "Discretion and Confidentiality",
     content:
-      "Every engagement is conducted with the confidentiality expected at the executive level. Communications, findings, and recommendations are shared only with authorized parties through secure, private channels.",
+      "Every engagement is conducted with the highest level of confidentiality. Communications, findings, and recommendations are shared only with authorized parties through secure, private channels—whether the client is an executive, a family member, or an individual.",
   },
 ];
 
@@ -61,10 +61,11 @@ export default function AboutPage() {
               Privacy Is Not Secrecy. It Is Control.
             </AnimatedHeading>
             <p className="text-steel text-sm sm:text-base lg:text-lg leading-relaxed">
-              Zerotrace Executive was created for individuals whose leadership, visibility,
-              and influence can make personal information more valuable to bad actors. Our
-              role is to help clients understand their exposure, prioritize meaningful
-              action, and maintain greater control over their digital footprint.
+              Zerotrace Executive was created for anyone whose visibility, influence, or
+              family connections can make personal information more valuable to bad actors.
+              Our role is to help clients—executives, families, and individuals—understand
+              their exposure, prioritize meaningful action, and maintain greater control
+              over their digital footprint.
             </p>
           </SectionReveal>
         </div>
@@ -108,10 +109,11 @@ export default function AboutPage() {
 
       <section className="py-12 sm:py-16 lg:py-24 bg-sapphire/10 overflow-x-clip w-full">
         <div className="max-w-7xl mx-auto section-pad w-full">
-          <SectionReveal className="text-center mb-8 sm:mb-12">
-            <AnimatedHeading className="text-2xl sm:text-3xl lg:text-4xl">Who We Serve</AnimatedHeading>
+          <SectionReveal className="text-center mb-8 sm:mb-12 max-w-3xl mx-auto">
+            <AnimatedHeading className="text-2xl sm:text-3xl lg:text-4xl mb-4">Who We Serve</AnimatedHeading>
+            <p className="text-steel text-sm sm:text-base leading-relaxed">{audienceIntro}</p>
           </SectionReveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {audiences.map((audience, i) => (
               <AudienceCard key={audience.id} audience={audience} index={i} />
             ))}
@@ -127,8 +129,8 @@ export default function AboutPage() {
             </h2>
             <p className="text-steel leading-relaxed mb-8">
               Services are provided through our Ontario operating entity. We serve
-              executives, founders, board directors, and high-net-worth individuals
-              across Canada with discretion and local accountability.
+              executives, founders, families, and individuals across Canada with
+              discretion and local accountability—the same quality of care for every client.
             </p>
           </SectionReveal>
 

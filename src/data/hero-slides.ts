@@ -13,10 +13,10 @@ export interface HeroSlide {
 export const heroSlides: HeroSlide[] = [
   {
     id: "reduce-risk",
-    headline: "Reduce executive cyber risk",
-    highlight: "without becoming executive IT",
+    headline: "Reduce your cyber risk",
+    highlight: "without becoming your own IT department",
     subheadline:
-      "See how Zerotrace Executive secures your digital footprint while keeping your personal life private.",
+      "See how Zerotrace Executive secures your digital footprint — for executives, families, and individuals who want their personal life kept private.",
     cta: "Find Out How",
     ctaAction: "scroll-process",
     image: images.heroSlide1,
@@ -26,7 +26,7 @@ export const heroSlides: HeroSlide[] = [
     headline: "We Protect",
     highlight: "Digital Lives",
     subheadline:
-      "Zerotrace Executive protects corporate executives, board members, high-profile individuals, and their families from cyber threats.",
+      "Zerotrace Executive protects executives, professionals, high-profile individuals, and their families from cyber threats — with the same services for every client.",
     cta: "Book a Demo",
     ctaAction: "audit",
     image: images.heroSlide2,
@@ -46,7 +46,7 @@ export const heroSlides: HeroSlide[] = [
     headline: "Digital Executive",
     highlight: "Protection",
     subheadline:
-      "Get a comprehensive framework for safeguarding the personal digital lives of executives and their families.",
+      "Get a comprehensive framework for safeguarding the personal digital lives of you and your family — whether you lead a company or simply want stronger privacy.",
     cta: "Download",
     ctaAction: "audit",
     image: images.heroSlide2,
@@ -56,7 +56,7 @@ export const heroSlides: HeroSlide[] = [
     headline: "It looks exactly like you",
     highlight: "but it isn't",
     subheadline:
-      "Prevent deepfakes and impersonation attacks targeting your executive team and personal identity.",
+      "Prevent deepfakes and impersonation attacks targeting you, your team, or your family members online.",
     cta: "Learn More",
     ctaAction: "scroll-services",
     image: images.heroSlide1,

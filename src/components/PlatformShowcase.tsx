@@ -58,16 +58,17 @@ export function PlatformShowcase() {
           <SectionReveal delay={0.15}>
             <p className="section-eyebrow">Platform Preview</p>
             <AnimatedHeading className="text-2xl sm:text-3xl lg:text-4xl mb-6">
-              Executive Privacy, Delivered With Discretion
+              Privacy Protection, Delivered With Discretion
             </AnimatedHeading>
             <p className="text-steel text-sm sm:text-base leading-relaxed mb-8">
               From comprehensive exposure assessments to ongoing monitoring, Zerotrace
-              Executive provides the intelligence and guidance senior leaders need to
-              regain control of their digital footprint.
+              Executive provides the intelligence and guidance clients need — whether
+              you are a senior leader, protecting your family, or an individual seeking
+              greater control over your digital footprint.
             </p>
 
             <ul className="space-y-3 mb-8">
-              {["Real-time exposure scoring", "Data-broker profile tracking", "Confidential executive briefings"].map((item) => (
+              {["Real-time exposure scoring", "Data-broker profile tracking", "Confidential briefings for you and your household"].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm text-steel">
                   <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
                   {item}

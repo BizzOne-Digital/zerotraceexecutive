@@ -24,6 +24,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  viewportFit: "cover",
   themeColor: "#0A1118",
 };
 
@@ -77,7 +78,7 @@ export default function RootLayout({
                 name: "Canada",
               },
               description:
-                "Executive digital exposure assessment, privacy monitoring, and digital-risk protection for C-suite leaders and high-net-worth individuals.",
+                "Digital exposure assessment, privacy monitoring, and digital-risk protection for executives, families, and individuals across Canada.",
             }),
           }}
         />

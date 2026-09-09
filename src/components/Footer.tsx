@@ -7,8 +7,6 @@ import { LegalDisclaimer } from "./LegalDisclaimer";
 import { navLinks } from "@/data/navigation";
 import { contact, legalDisclaimer } from "@/data/contact";
 import { useAuditModal } from "@/context/AuditModalContext";
-import { PhoneLinkPlain } from "./PhoneLink";
-
 const footerSections = [
   {
     title: "Services",
@@ -34,16 +32,16 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative mt-auto border-t border-gold/20 bg-nearblack overflow-hidden">
+    <footer className="relative mt-auto border-t border-gold/20 bg-nearblack overflow-hidden safe-bottom">
       <div
         className="absolute inset-0 secure-grid-bg opacity-10 pointer-events-none"
         aria-hidden="true"
       />
 
       <div className="relative border-b border-white/5">
-        <div className="max-w-7xl mx-auto section-pad py-10 sm:py-12 text-center w-full">
-          <p className="label-caps text-gold/50 mb-2">Protect Your Digital Life</p>
-          <ShieldLogo size="lg" className="justify-center" />
+        <div className="max-w-7xl mx-auto section-pad py-10 sm:py-14 text-center w-full">
+          <p className="label-caps text-gold/50 mb-4 sm:mb-5">Protect Your Digital Life</p>
+          <ShieldLogo size="footer" className="justify-center mx-auto" />
         </div>
       </div>
 
@@ -53,7 +51,12 @@ export function Footer() {
             <h3 className="label-caps text-gold mb-4">Contact</h3>
             <ul className="space-y-2 text-sm text-steel">
               <li>
-                <PhoneLinkPlain className="text-base text-ivory hover:text-gold transition-colors" />
+                <a
+                  href={contact.phoneTelHref}
+                  className="text-base text-ivory hover:text-gold transition-colors"
+                >
+                  {contact.phone}
+                </a>
               </li>
               {contact.emails.map((email) => (
                 <li key={email.address}>

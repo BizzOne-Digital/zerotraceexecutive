@@ -34,4 +34,21 @@ export const audiences: AudienceItem[] = [
       "Wealth visibility creates distinct privacy considerations. Property records, philanthropic activities, and lifestyle indicators can form a composite profile accessible to motivated parties.",
     icon: "gem",
   },
+  {
+    id: "families",
+    title: "Families",
+    description:
+      "Household members often share exposure through addresses, phone numbers, social accounts, and data-broker listings. We help protect spouses, children, and extended family with the same discretion and rigor.",
+    icon: "heartHandshake",
+  },
+  {
+    id: "professionals",
+    title: "Professionals & Individuals",
+    description:
+      "You do not need a C-suite title to deserve strong privacy. Professionals, public-facing individuals, and anyone concerned about their digital footprint receive the same audit and protection services.",
+    icon: "userCheck",
+  },
 ];
+
+export const audienceIntro =
+  "Our services are not limited to executives. The same confidential audit, remediation guidance, and ongoing protection are available to leaders, families, and individuals who want greater control over their digital lives.";

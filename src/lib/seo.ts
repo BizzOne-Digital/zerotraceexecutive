@@ -10,14 +10,15 @@ export const baseMetadata: Metadata = {
     template: `%s | ${contact.businessName}`,
   },
   description:
-    "Elite executive privacy and digital-risk protection for C-suite leaders, founders, board directors, and high-net-worth individuals in Ontario and Canada.",
+    "Elite privacy and digital-risk protection for executives, families, and individuals in Ontario and Canada. Confidential audits, exposure monitoring, and remediation for anyone who needs greater control over their digital life.",
   keywords: [
     "Executive privacy protection Ontario",
-    "Executive digital-risk assessment",
+    "Family digital privacy protection",
+    "Personal digital-risk assessment Canada",
     "C-suite privacy services Canada",
     "High-net-worth privacy protection",
     "Executive data exposure audit",
-    "Digital footprint reduction for executives",
+    "Digital footprint reduction",
     "Zerotrace Executive",
     "ZT Shield",
   ],
@@ -30,14 +31,14 @@ export const baseMetadata: Metadata = {
     siteName: contact.businessName,
     title: `${contact.businessName} | ${contact.tagline}`,
     description:
-      "Elite anonymity and uncompromising security for executives, founders, and high-net-worth individuals.",
+      "Elite anonymity and uncompromising security for executives, families, and individuals across Canada.",
     images: [{ url: "/logo.png", width: 1200, height: 630, alt: contact.businessName }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${contact.businessName} | ${contact.tagline}`,
     description:
-      "Executive privacy and digital-risk protection for C-suite leaders and high-net-worth individuals.",
+      "Privacy and digital-risk protection for executives, families, and individuals who need discretion and control.",
     images: ["/logo.png"],
   },
   robots: {

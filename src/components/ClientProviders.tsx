@@ -23,7 +23,7 @@ export function ClientProviders({ children }: { children: React.ReactNode }) {
       <div className="grain-overlay" aria-hidden="true" />
       <div className="page-container">
         <Header />
-        <main className="min-h-screen flex flex-col pb-20 md:pb-0 w-full max-w-full overflow-x-clip">
+        <main className="min-h-screen flex flex-col pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] md:pb-0 w-full max-w-full overflow-x-clip">
           {children}
         </main>
         <Footer />

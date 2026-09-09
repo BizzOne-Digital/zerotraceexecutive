@@ -6,6 +6,12 @@ export interface FAQItem {
 
 export const faqItems: FAQItem[] = [
   {
+    id: "who-we-serve",
+    question: "Is this service only for executives?",
+    answer:
+      "No. While we specialize in high-stakes privacy for senior leaders, the same Executive Audit, diagnostics, and Active Protection Retainer are available to families, professionals, and individuals — anyone who wants a clearer picture of their digital exposure and practical steps to reduce risk. Every engagement receives the same level of discretion and care.",
+  },
+  {
     id: "data-access",
     question: "How do you access or find my data without compromising me further?",
     answer:

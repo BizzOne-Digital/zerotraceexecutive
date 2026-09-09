@@ -20,14 +20,14 @@ import { ConfidentialCTA } from "@/components/ConfidentialCTA";
 import { RedactedTextReveal } from "@/components/RedactedTextReveal";
 import { SecureGrid } from "@/components/SecureGrid";
 import { risks } from "@/data/risks";
-import { audiences } from "@/data/audiences";
+import { audiences, audienceIntro } from "@/data/audiences";
 import { auditPricing, retainerPricing } from "@/data/pricing";
 import { consultationNote } from "@/data/contact";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata(
-  "Executive Privacy Protection",
-  "Elite executive privacy and digital-risk protection for C-suite leaders, founders, and high-net-worth individuals in Ontario and Canada.",
+  "Privacy & Digital-Risk Protection",
+  "Confidential privacy and digital-risk protection for executives, families, and individuals in Ontario and Canada. Same elite audit and ongoing protection for every client.",
   "/"
 );
 
@@ -60,9 +60,10 @@ export default function HomePage() {
               Your Personal Information Is Already in Motion
             </AnimatedHeading>
             <p className="text-steel text-sm sm:text-base lg:text-lg leading-relaxed">
-              Executive risk rarely begins inside the boardroom. Home addresses, family
+              Digital risk rarely stays in the workplace. Home addresses, family
               associations, breached passwords, public filings, data-broker profiles, and
-              reused credentials can create a map of an executive&apos;s private life.
+              reused credentials can create a detailed map of anyone&apos;s private life —
+              whether you lead a company or simply want your household better protected.
             </p>
           </SectionReveal>
 
@@ -102,7 +103,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto section-pad w-full">
           <SectionReveal className="text-center mb-10 sm:mb-16">
             <AnimatedHeading className="text-2xl sm:text-3xl lg:text-5xl mb-4">
-              Executive Protection Offers
+              Protection Offers for Every Client
             </AnimatedHeading>
           </SectionReveal>
 
@@ -138,13 +139,17 @@ export default function HomePage() {
 
       <section className="py-16 sm:py-24 lg:py-32 bg-sapphire/10 overflow-x-clip w-full">
         <div className="max-w-7xl mx-auto section-pad w-full">
-          <SectionReveal className="text-center mb-10 sm:mb-16">
+          <SectionReveal className="text-center mb-10 sm:mb-16 max-w-4xl mx-auto">
+            <p className="section-eyebrow justify-center">Who We Serve</p>
             <AnimatedHeading className="text-xl sm:text-2xl lg:text-4xl mb-4">
-              Built for C-Suite Executives, Founders, Board Directors, and High-Net-Worth Individuals.
+              Not Just for Executives — For Leaders, Families, and Individuals
             </AnimatedHeading>
+            <p className="text-steel text-sm sm:text-base leading-relaxed mt-4">
+              {audienceIntro}
+            </p>
           </SectionReveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {audiences.map((audience, i) => (
               <AudienceCard key={audience.id} audience={audience} index={i} />
             ))}

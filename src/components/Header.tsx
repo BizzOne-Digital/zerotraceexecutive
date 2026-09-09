@@ -38,7 +38,7 @@ export function Header() {
           <div className="flex items-center justify-between h-9 text-[11px] tracking-[0.12em] uppercase">
             <div className="flex items-center gap-6">
               <Link href="/pricing" className="text-ivory/60 hover:text-gold transition-colors">
-                For <strong className="text-ivory/90 font-medium">Executives</strong>
+                For <strong className="text-ivory/90 font-medium">Leaders & Families</strong>
               </Link>
               <Link href="/pricing" className="text-ivory/60 hover:text-gold transition-colors">
                 <strong className="text-ivory/90 font-medium">Active Protection</strong> Retainer
@@ -59,18 +59,18 @@ export function Header() {
 
       <header
         className={cn(
-          "fixed left-0 right-0 z-50 transition-all duration-500 w-full max-w-full overflow-x-clip",
+          "fixed left-0 right-0 z-50 transition-all duration-500 w-full max-w-full overflow-x-clip safe-top",
           "top-0 sm:top-9",
           scrolled || !isHome
             ? "bg-midnight/92 backdrop-blur-xl shadow-lg shadow-black/30"
             : "bg-gradient-to-b from-midnight/80 to-transparent sm:from-midnight/70"
         )}
       >
-        <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="flex lg:grid lg:grid-cols-[1fr_auto_1fr] items-center justify-between h-[80px] sm:h-[88px] lg:h-[100px] xl:h-[104px] gap-4">
+        <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-10">
+          <div className="flex lg:grid lg:grid-cols-[1fr_auto_1fr] items-center justify-between h-[96px] sm:h-[92px] lg:h-[100px] xl:h-[104px] gap-2 sm:gap-4">
             <Link
               href="/"
-              className="relative z-10 justify-self-start"
+              className="relative z-10 justify-self-start min-w-0 flex-shrink"
               aria-label="Zerotrace Executive Home"
             >
               <ShieldLogo size="header" variant="header" />
@@ -113,7 +113,7 @@ export function Header() {
             </div>
 
             <button
-              className="lg:hidden shrink-0 p-2 text-ivory"
+              className="lg:hidden shrink-0 touch-target flex items-center justify-center p-2 text-ivory -mr-1"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}

@@ -17,7 +17,7 @@ export function FAQSection() {
         <SectionReveal className="text-center mb-10 sm:mb-14">
           <p className="section-eyebrow justify-center">Common Questions</p>
           <AnimatedHeading className="text-2xl sm:text-3xl lg:text-4xl">
-            Executive Privacy FAQ
+            Privacy Protection FAQ
           </AnimatedHeading>
         </SectionReveal>
 

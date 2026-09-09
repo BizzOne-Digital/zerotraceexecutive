@@ -90,7 +90,7 @@ export function HeroCarousel() {
       <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/40 to-midnight/60" />
       <div className="absolute inset-0 secure-grid-bg opacity-15" aria-hidden="true" />
 
-      <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-32 sm:pt-36 lg:pt-40 pb-20 sm:pb-24">
+      <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-24 sm:pt-36 lg:pt-40 pb-28 sm:pb-24">
         <div className="max-w-2xl lg:max-w-3xl">
           <AnimatePresence mode="wait">
             <motion.div
@@ -107,10 +107,10 @@ export function HeroCarousel() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.1 }}
               >
-                Digital Executive Protection
+                Privacy & Digital-Risk Protection
               </motion.p>
 
-              <h1 className="heading-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] leading-[1.1] mb-5 sm:mb-6">
+              <h1 className="heading-display text-[1.75rem] min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] leading-[1.15] sm:leading-[1.1] mb-5 sm:mb-6">
                 {slide.headline}
                 {slide.highlight && (
                   <>
@@ -143,30 +143,30 @@ export function HeroCarousel() {
           </AnimatePresence>
         </div>
 
-        <div className="absolute bottom-6 sm:bottom-8 left-4 sm:left-6 lg:left-10 right-4 sm:right-6 lg:right-10 flex items-center justify-between gap-4">
-          <div className="flex-1 max-w-xs h-0.5 bg-white/10 rounded-full overflow-hidden hidden sm:block">
+        <div className="mt-8 sm:mt-0 sm:absolute sm:bottom-8 left-0 right-0 sm:left-6 sm:right-6 lg:left-10 lg:right-10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 w-full">
+          <div className="w-full max-w-xs h-0.5 bg-white/10 rounded-full overflow-hidden hidden sm:block">
             <motion.div
               className="h-full bg-gold rounded-full"
               style={{ width: `${progress * 100}%` }}
             />
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3 ml-auto">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto sm:ml-auto">
             <button
               onClick={prev}
-              className="p-2.5 border border-white/10 rounded-sm text-ivory/70 hover:text-ivory hover:border-gold/40 hover:bg-gold/5 transition-all"
+              className="touch-target flex items-center justify-center p-2 border border-white/10 rounded-sm text-ivory/70 hover:text-ivory hover:border-gold/40 hover:bg-gold/5 transition-all"
               aria-label="Previous slide"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <div className="flex gap-1.5 sm:gap-2">
+            <div className="flex gap-1 sm:gap-1.5 max-w-[200px] sm:max-w-none overflow-x-auto scrollbar-hide px-1">
               {heroSlides.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => { setCurrent(i); setProgress(0); }}
                   className={cn(
-                    "h-1.5 rounded-full transition-all duration-300",
-                    i === current ? "w-8 bg-gold shadow-[0_0_8px_rgba(212,175,55,0.5)]" : "w-1.5 bg-white/25 hover:bg-white/50"
+                    "h-1.5 rounded-full transition-all duration-300 shrink-0",
+                    i === current ? "w-6 sm:w-8 bg-gold shadow-[0_0_8px_rgba(212,175,55,0.5)]" : "w-1.5 bg-white/25 hover:bg-white/50"
                   )}
                   aria-label={`Go to slide ${i + 1}`}
                 />
@@ -174,7 +174,7 @@ export function HeroCarousel() {
             </div>
             <button
               onClick={next}
-              className="p-2.5 border border-white/10 rounded-sm text-ivory/70 hover:text-ivory hover:border-gold/40 hover:bg-gold/5 transition-all"
+              className="touch-target flex items-center justify-center p-2 border border-white/10 rounded-sm text-ivory/70 hover:text-ivory hover:border-gold/40 hover:bg-gold/5 transition-all"
               aria-label="Next slide"
             >
               <ChevronRight className="w-5 h-5" />

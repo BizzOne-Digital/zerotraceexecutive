@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface ShieldLogoProps {
-  size?: "sm" | "md" | "lg" | "xl" | "header" | "hero";
+  size?: "sm" | "md" | "lg" | "xl" | "header" | "hero" | "footer";
   showText?: boolean;
   className?: string;
   animate?: boolean;
@@ -19,8 +19,9 @@ const heightClasses = {
   md: "h-14 sm:h-16",
   lg: "h-20 sm:h-24",
   xl: "h-28 sm:h-32",
-  header: "h-12 sm:h-14 lg:h-[76px]",
+  header: "h-[76px] sm:h-[72px] lg:h-[80px] xl:h-[88px]",
   hero: "h-24 sm:h-28 md:h-32 lg:h-36",
+  footer: "h-40 sm:h-36 md:h-32 lg:h-36",
 };
 
 export function ShieldLogo({
@@ -34,7 +35,7 @@ export function ShieldLogo({
   const resolvedSize = isHeader ? "header" : size;
 
   return (
-    <div className={cn("flex items-center", className)}>
+    <div className={cn("flex items-center min-w-0", className)}>
       <motion.div
         className="relative shrink-0"
         animate={
@@ -47,9 +48,9 @@ export function ShieldLogo({
         <Image
           src={images.logo}
           alt="Zerotrace Executive"
-          width={320}
-          height={180}
-          className={cn("object-contain w-auto", heightClasses[resolvedSize])}
+          width={360}
+          height={200}
+          className={cn("object-contain w-auto max-w-full", heightClasses[resolvedSize])}
           priority
         />
       </motion.div>
