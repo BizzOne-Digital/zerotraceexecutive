@@ -3,7 +3,7 @@ import { AnimatedHeading } from "@/components/AnimatedHeading";
 import { PricingCard } from "@/components/PricingCard";
 import { ComparisonTable } from "@/components/ComparisonTable";
 import { LegalDisclaimer } from "@/components/LegalDisclaimer";
-import { FAQSection } from "@/components/FAQSection";
+import { ExecutivePricingFAQ, FAQSection } from "@/components/FAQSection";
 import { SampleReportShowcase } from "@/components/SampleReportShowcase";
 import { AuditIntakeSection } from "@/components/AuditIntakeSection";
 import { ConfidentialCTA } from "@/components/ConfidentialCTA";
@@ -67,6 +67,8 @@ export default function PricingPage() {
           </p>
         </div>
       </section>
+
+      <ExecutivePricingFAQ />
 
       <section className="py-12 sm:py-16 lg:py-24 bg-sapphire/10 overflow-x-clip w-full">
         <div className="max-w-5xl mx-auto section-pad w-full">

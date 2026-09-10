@@ -3,26 +3,44 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { faqItems } from "@/data/faq";
+import { faqItems, pricingFaqItems, type FAQItem } from "@/data/faq";
 import { SectionReveal } from "./SectionReveal";
 import { AnimatedHeading } from "./AnimatedHeading";
 import { cn } from "@/lib/utils";
 
-export function FAQSection() {
-  const [openId, setOpenId] = useState<string | null>(faqItems[0]?.id ?? null);
+interface FAQSectionProps {
+  items?: FAQItem[];
+  eyebrow?: string;
+  title?: string;
+  id?: string;
+  className?: string;
+  defaultOpenId?: string | null;
+}
+
+export function FAQSection({
+  items = faqItems,
+  eyebrow = "Common Questions",
+  title = "Privacy Protection FAQ",
+  id = "faq",
+  className,
+  defaultOpenId,
+}: FAQSectionProps) {
+  const [openId, setOpenId] = useState<string | null>(
+    defaultOpenId ?? items[0]?.id ?? null
+  );
 
   return (
-    <section id="faq" className="py-16 sm:py-24 lg:py-28 overflow-x-clip w-full">
+    <section id={id} className={cn("py-16 sm:py-24 lg:py-28 overflow-x-clip w-full", className)}>
       <div className="max-w-3xl mx-auto section-pad w-full">
         <SectionReveal className="text-center mb-10 sm:mb-14">
-          <p className="section-eyebrow justify-center">Common Questions</p>
+          <p className="section-eyebrow justify-center">{eyebrow}</p>
           <AnimatedHeading className="text-2xl sm:text-3xl lg:text-4xl">
-            Privacy Protection FAQ
+            {title}
           </AnimatedHeading>
         </SectionReveal>
 
         <div className="space-y-3">
-          {faqItems.map((item, i) => {
+          {items.map((item, i) => {
             const isOpen = openId === item.id;
             return (
               <SectionReveal key={item.id} delay={i * 0.05}>
@@ -30,7 +48,7 @@ export function FAQSection() {
                   <button
                     type="button"
                     onClick={() => setOpenId(isOpen ? null : item.id)}
-                    className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left"
+                    className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left touch-target"
                     aria-expanded={isOpen}
                   >
                     <span className="font-display text-base sm:text-lg text-ivory pr-4">
@@ -66,5 +84,18 @@ export function FAQSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+export function ExecutivePricingFAQ() {
+  return (
+    <FAQSection
+      items={pricingFaqItems}
+      eyebrow="High-Trust Answers"
+      title="Executive FAQ"
+      id="executive-faq"
+      defaultOpenId="personal-data-handling"
+      className="py-12 sm:py-16 lg:py-20 bg-sapphire/10"
+    />
   );
 }

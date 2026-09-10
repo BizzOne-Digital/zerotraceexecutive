@@ -7,6 +7,7 @@ import { LegalDisclaimer } from "./LegalDisclaimer";
 import { navLinks } from "@/data/navigation";
 import { contact, legalDisclaimer } from "@/data/contact";
 import { useAuditModal } from "@/context/AuditModalContext";
+import { PhoneLinkPlain } from "./PhoneLink";
 const footerSections = [
   {
     title: "Services",
@@ -51,12 +52,10 @@ export function Footer() {
             <h3 className="label-caps text-gold mb-4">Contact</h3>
             <ul className="space-y-2 text-sm text-steel">
               <li>
-                <a
-                  href={contact.phoneTelHref}
-                  className="text-base text-ivory hover:text-gold transition-colors"
-                >
-                  {contact.phone}
-                </a>
+                <PhoneLinkPlain
+                  className="text-base text-ivory hover:text-gold transition-colors touch-target inline-flex items-center"
+                  aria-label={`Call ${contact.phone}`}
+                />
               </li>
               {contact.emails.map((email) => (
                 <li key={email.address}>

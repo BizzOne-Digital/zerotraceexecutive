@@ -9,7 +9,7 @@ export const contact = {
   ],
   phone: "289-224-9770",
   phoneDigits: "2892249770",
-  phoneTelHref: "tel:2892249770",
+  phoneTelHref: "tel:+12892249770",
   website: "ztshield.ca",
   websiteUrl: "https://ztshield.ca",
   location: "Ontario, Canada",

@@ -14,7 +14,7 @@ import { ResourcesSection } from "@/components/ResourcesSection";
 import { MediaLogos } from "@/components/MediaLogos";
 import { SampleReportShowcase } from "@/components/SampleReportShowcase";
 import { WhyUsGrid } from "@/components/WhyUsGrid";
-import { FAQSection } from "@/components/FAQSection";
+import { ExecutivePricingFAQ } from "@/components/FAQSection";
 import { AuditIntakeSection } from "@/components/AuditIntakeSection";
 import { ConfidentialCTA } from "@/components/ConfidentialCTA";
 import { RedactedTextReveal } from "@/components/RedactedTextReveal";
@@ -135,7 +135,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <FAQSection />
+      <ExecutivePricingFAQ />
 
       <section className="py-16 sm:py-24 lg:py-32 bg-sapphire/10 overflow-x-clip w-full">
         <div className="max-w-7xl mx-auto section-pad w-full">
