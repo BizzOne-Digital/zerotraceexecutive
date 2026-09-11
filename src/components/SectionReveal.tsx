@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { fadeUp, defaultTransition } from "@/lib/animations";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useRevealVisible } from "@/hooks/useRevealVisible";
 import { cn } from "@/lib/utils";
 
 interface SectionRevealProps {
@@ -13,6 +14,7 @@ interface SectionRevealProps {
 
 export function SectionReveal({ children, className, delay = 0 }: SectionRevealProps) {
   const reducedMotion = useReducedMotion();
+  const { ref, visible } = useRevealVisible();
 
   if (reducedMotion) {
     return <div className={className}>{children}</div>;
@@ -20,10 +22,10 @@ export function SectionReveal({ children, className, delay = 0 }: SectionRevealP
 
   return (
     <motion.div
+      ref={ref}
       className={cn(className)}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      animate={visible ? "visible" : "hidden"}
       variants={fadeUp}
       transition={{ ...defaultTransition, delay }}
     >

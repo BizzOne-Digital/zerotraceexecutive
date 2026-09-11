@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import type { AudienceItem } from "@/data/audiences";
 import { getIcon } from "@/lib/icons";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useRevealVisible } from "@/hooks/useRevealVisible";
 
 interface AudienceCardProps {
   audience: AudienceItem;
@@ -12,15 +13,19 @@ interface AudienceCardProps {
 
 export function AudienceCard({ audience, index }: AudienceCardProps) {
   const reducedMotion = useReducedMotion();
+  const { ref, visible } = useRevealVisible();
   const Icon = getIcon(audience.icon);
+
+  const hidden = { opacity: 0, scale: 0.98, y: 12 };
+  const shown = { opacity: 1, scale: 1, y: 0 };
 
   return (
     <motion.article
+      ref={ref}
       className="premium-card gold-border-glow rounded-xl p-5 sm:p-6 text-center w-full min-w-0"
-      initial={reducedMotion ? undefined : { opacity: 0, scale: 0.95 }}
-      whileInView={reducedMotion ? undefined : { opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
+      initial={reducedMotion ? false : hidden}
+      animate={reducedMotion || visible ? shown : hidden}
+      transition={{ delay: index * 0.06, duration: 0.45 }}
       whileHover={reducedMotion ? undefined : { y: -4 }}
     >
       <div className="inline-flex p-4 rounded-full bg-sapphire-dark/50 border border-gold/10 mb-4">

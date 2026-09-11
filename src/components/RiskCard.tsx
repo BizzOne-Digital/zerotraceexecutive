@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useRevealVisible } from "@/hooks/useRevealVisible";
 import type { RiskItem } from "@/data/risks";
 import { getIcon } from "@/lib/icons";
 import { useAuditModal } from "@/context/AuditModalContext";
@@ -13,16 +14,20 @@ interface RiskCardProps {
 
 export function RiskCard({ risk, index }: RiskCardProps) {
   const reducedMotion = useReducedMotion();
+  const { ref, visible } = useRevealVisible();
   const { openModal } = useAuditModal();
   const Icon = getIcon(risk.icon);
 
+  const hidden = { opacity: 0, y: 40 };
+  const shown = { opacity: 1, y: 0 };
+
   return (
     <motion.article
+      ref={ref}
       className="group relative gold-border-glow glass-panel rounded-lg p-5 sm:p-8 overflow-hidden w-full min-w-0"
-      initial={reducedMotion ? undefined : { opacity: 0, y: 40 }}
-      whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.15, duration: 0.6 }}
+      initial={reducedMotion ? false : hidden}
+      animate={reducedMotion || visible ? shown : hidden}
+      transition={{ delay: index * 0.08, duration: 0.5 }}
       whileHover={reducedMotion ? undefined : { y: -4 }}
     >
       <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-3xl group-hover:bg-gold/10 transition-colors" />
@@ -31,7 +36,7 @@ export function RiskCard({ risk, index }: RiskCardProps) {
         <div className="p-3 rounded-lg bg-sapphire-dark/50 border border-gold/10">
           <Icon className="w-6 h-6 text-gold" aria-hidden="true" />
         </div>
-        <ExposureIndicator level={risk.exposureLevel} />
+        <ExposureIndicator level={risk.exposureLevel} animate={visible || reducedMotion} />
       </div>
 
       <span className="label-caps text-gold/60 mb-2 block">{risk.label}</span>
@@ -55,7 +60,13 @@ export function RiskCard({ risk, index }: RiskCardProps) {
   );
 }
 
-function ExposureIndicator({ level }: { level: number }) {
+function ExposureIndicator({
+  level,
+  animate,
+}: {
+  level: number;
+  animate: boolean;
+}) {
   const reducedMotion = useReducedMotion();
 
   return (
@@ -65,9 +76,10 @@ function ExposureIndicator({ level }: { level: number }) {
         <motion.div
           className="h-full bg-gradient-to-r from-sapphire-dark to-gold rounded-full"
           initial={reducedMotion ? { width: `${level}%` } : { width: 0 }}
-          whileInView={{ width: `${level}%` }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.3 }}
+          animate={
+            reducedMotion || animate ? { width: `${level}%` } : { width: 0 }
+          }
+          transition={{ duration: 1.2, delay: 0.2 }}
         />
       </div>
       <span className="text-xs text-gold/80 mt-1 block">{level}%</span>

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import type { ServiceItem } from "@/data/services";
 import { getIcon } from "@/lib/icons";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useRevealVisible } from "@/hooks/useRevealVisible";
 
 interface ServiceCardProps {
   service: ServiceItem;
@@ -12,17 +13,20 @@ interface ServiceCardProps {
 
 export function ServiceCard({ service, index }: ServiceCardProps) {
   const reducedMotion = useReducedMotion();
+  const { ref, visible } = useRevealVisible();
   const Icon = getIcon(service.icon);
+
+  const hidden = { opacity: 0, x: index % 2 === 0 ? -24 : 24 };
+  const shown = { opacity: 1, x: 0 };
 
   return (
     <motion.article
+      ref={ref}
       className="group gold-border-glow glass-panel rounded-lg p-5 sm:p-6 lg:p-8 w-full min-w-0"
-      initial={reducedMotion ? undefined : { opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-      whileInView={reducedMotion ? undefined : { opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.6 }}
+      initial={reducedMotion ? false : hidden}
+      animate={reducedMotion || visible ? shown : hidden}
+      transition={{ delay: index * 0.08, duration: 0.5 }}
       whileHover={reducedMotion ? undefined : { scale: 1.02 }}
-      style={{ transformStyle: "preserve-3d" }}
     >
       <div className="flex items-start gap-4">
         <div className="p-3 rounded-lg bg-sapphire-dark/60 border border-gold/10 shrink-0 group-hover:border-gold/30 transition-colors">

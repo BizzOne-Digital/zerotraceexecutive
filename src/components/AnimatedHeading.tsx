@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useRevealVisible } from "@/hooks/useRevealVisible";
 
 interface AnimatedHeadingProps {
   children: string;
@@ -18,6 +19,7 @@ export function AnimatedHeading({
   delay = 0,
 }: AnimatedHeadingProps) {
   const reducedMotion = useReducedMotion();
+  const { ref, visible } = useRevealVisible();
   const words = children.split(" ");
 
   const Tag = as;
@@ -27,17 +29,20 @@ export function AnimatedHeading({
   }
 
   return (
-    <Tag className={cn("heading-display text-balance", className)}>
+    <Tag ref={ref} className={cn("heading-display text-balance", className)}>
       {words.map((word, i) => (
         <motion.span
           key={`${word}-${i}`}
           className="inline-block mr-[0.2em] last:mr-0"
-          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+          animate={
+            visible
+              ? { opacity: 1, y: 0, filter: "blur(0px)" }
+              : { opacity: 0, y: 24, filter: "blur(6px)" }
+          }
           transition={{
-            duration: 0.6,
-            delay: delay + i * 0.08,
+            duration: 0.5,
+            delay: delay + i * 0.06,
             ease: [0.22, 1, 0.36, 1],
           }}
         >
