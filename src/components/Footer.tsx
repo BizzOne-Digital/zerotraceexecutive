@@ -23,7 +23,7 @@ const footerSections = [
     links: [
       { label: "About Us", href: "/about" },
       { label: "Pricing", href: "/pricing" },
-      { label: "Contact", href: "#request-audit" },
+      { label: "Contact Form", href: "/contact" },
     ],
   },
 ];

@@ -1,23 +1,21 @@
 export const auditPricing = {
-  name: "Executive Audit & Diagnostics",
+  name: "Deep Diagnostic Audit",
   regularPrice: 1899,
   limitedPrice: 999,
   period: "one-time",
   badge: "Limited-Time Offer",
   features: [
+    "Full Exposure & Breach History analysis",
+    "Dark Web credential leak detection",
+    "Data Broker profile mapping",
     "Initial confidential consultation",
-    "Executive exposure assessment",
-    "Personal-data visibility review",
-    "Credential exposure diagnostics",
-    "Public-record risk mapping",
-    "Data-broker review",
     "Prioritized remediation roadmap",
     "Executive findings summary",
   ],
   homeFeatures: [
-    "Exposure assessment",
-    "Diagnostic review",
-    "Prioritized action plan",
+    "Full Exposure & Breach History analysis",
+    "Dark Web credential leak detection",
+    "Data Broker profile mapping",
     "Confidential findings summary",
   ],
   cta: "Request Confidential Audit",
@@ -25,22 +23,21 @@ export const auditPricing = {
 };
 
 export const retainerPricing = {
-  name: "Active Protection Retainer",
+  name: "Active Continuous Retainer",
   price: 149,
   period: "month",
   features: [
-    "Recurring exposure monitoring",
-    "Periodic privacy reviews",
-    "Continued visibility checks",
+    "Persistent 24/7 dark web monitoring",
+    "Automated data broker opt-outs & re-scans",
+    "Personal Information Suppression across 200+ sources",
     "Ongoing remediation guidance",
     "Executive privacy support",
     "Updated priority recommendations",
   ],
   homeFeatures: [
-    "Ongoing monitoring",
-    "Privacy-maintenance support",
-    "Recurring exposure review",
-    "Continued risk visibility",
+    "Persistent 24/7 dark web monitoring",
+    "Automated data broker opt-outs & re-scans",
+    "Personal Information Suppression across 200+ sources",
     "Executive-focused guidance",
   ],
   cta: "Discuss Active Protection",
@@ -89,3 +86,22 @@ export const comparisonRows = [
     retainer: "$149/month",
   },
 ] as const;
+
+export const cloakPricing = {
+  name: "Corporate & Legal Cloaking",
+  priceLabel: "Premium Access",
+  features: [
+    "Address masking on corporate registries",
+    "WHOIS domain privacy enforcement",
+    "Public property record suppression",
+    "Confidential scoping consultation",
+    "Tailored legal & registry coordination",
+  ],
+  homeFeatures: [
+    "Address masking on corporate registries",
+    "WHOIS domain privacy enforcement",
+    "Public property record suppression",
+  ],
+  cta: "Request Premium Access",
+  homeCta: "Request Premium Access",
+};

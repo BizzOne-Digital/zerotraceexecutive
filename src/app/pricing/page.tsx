@@ -8,7 +8,7 @@ import { SampleReportShowcase } from "@/components/SampleReportShowcase";
 import { AuditIntakeSection } from "@/components/AuditIntakeSection";
 import { ConfidentialCTA } from "@/components/ConfidentialCTA";
 import { SecureGrid } from "@/components/SecureGrid";
-import { auditPricing, retainerPricing } from "@/data/pricing";
+import { auditPricing, retainerPricing, cloakPricing } from "@/data/pricing";
 import { pricingDisclaimer, consultationNote } from "@/data/contact";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -40,7 +40,7 @@ export default function PricingPage() {
 
       <section className="py-12 sm:py-16 lg:py-24 overflow-x-clip w-full">
         <div className="max-w-7xl mx-auto section-pad w-full">
-          <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 max-w-6xl mx-auto">
             <PricingCard
               title={auditPricing.name}
               regularPrice={auditPricing.regularPrice}
@@ -59,6 +59,14 @@ export default function PricingPage() {
               features={retainerPricing.features}
               cta={retainerPricing.cta}
               variant="retainer"
+            />
+            <PricingCard
+              title={cloakPricing.name}
+              priceLabel={cloakPricing.priceLabel}
+              features={cloakPricing.features}
+              cta={cloakPricing.cta}
+              variant="premium"
+              href="/contact"
             />
           </div>
 

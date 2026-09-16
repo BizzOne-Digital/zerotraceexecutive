@@ -13,6 +13,8 @@ export const contact = {
   website: "ztshield.ca",
   websiteUrl: "https://ztshield.ca",
   location: "Ontario, Canada",
+  /** Share this path with clients for the confidential intake form */
+  intakeFormPath: "/contact",
 };
 
 export const legalDisclaimer =

@@ -21,7 +21,7 @@ import { RedactedTextReveal } from "@/components/RedactedTextReveal";
 import { SecureGrid } from "@/components/SecureGrid";
 import { risks } from "@/data/risks";
 import { audiences, audienceIntro } from "@/data/audiences";
-import { auditPricing, retainerPricing } from "@/data/pricing";
+import { auditPricing, retainerPricing, cloakPricing } from "@/data/pricing";
 import { consultationNote } from "@/data/contact";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -107,7 +107,7 @@ export default function HomePage() {
             </AnimatedHeading>
           </SectionReveal>
 
-          <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 max-w-6xl mx-auto">
             <PricingCard
               title={auditPricing.name}
               regularPrice={auditPricing.regularPrice}
@@ -126,6 +126,14 @@ export default function HomePage() {
               features={retainerPricing.homeFeatures}
               cta={retainerPricing.homeCta}
               variant="retainer"
+            />
+            <PricingCard
+              title={cloakPricing.name}
+              priceLabel={cloakPricing.priceLabel}
+              features={cloakPricing.homeFeatures}
+              cta={cloakPricing.homeCta}
+              variant="premium"
+              href="/contact"
             />
           </div>
 

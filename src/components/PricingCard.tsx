@@ -6,32 +6,43 @@ import { MagneticButton } from "./MagneticButton";
 import { useAuditModal } from "@/context/AuditModalContext";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface PricingCardProps {
   title: string;
   regularPrice?: number;
-  price: number;
-  period: string;
+  price?: number;
+  priceLabel?: string;
+  period?: string;
   features: string[];
   cta: string;
   badge?: string;
-  variant?: "audit" | "retainer";
+  variant?: "audit" | "retainer" | "premium";
   featured?: boolean;
+  href?: string;
 }
 
 export function PricingCard({
   title,
   regularPrice,
   price,
+  priceLabel,
   period,
   features,
   cta,
   badge,
   variant = "audit",
   featured = false,
+  href,
 }: PricingCardProps) {
   const { openModal } = useAuditModal();
   const reducedMotion = useReducedMotion();
+  const isPremium = variant === "premium";
+
+  const handleCta = () => {
+    if (href) return;
+    openModal();
+  };
 
   return (
     <motion.article
@@ -51,19 +62,25 @@ export function PricingCard({
       <h3 className="font-display text-xl sm:text-2xl lg:text-3xl text-ivory mb-4 sm:mb-6">{title}</h3>
 
       <div className="mb-8">
-        {regularPrice && (
-          <p className="text-steel text-lg line-through mb-1">
-            ${regularPrice.toLocaleString()}
-          </p>
-        )}
-        <div className="flex items-baseline gap-2">
-          <span className="font-display text-4xl sm:text-5xl text-gold">
-            ${price.toLocaleString()}
-          </span>
-          <span className="text-steel text-sm">/{period}</span>
-        </div>
-        {variant === "audit" && (
-          <p className="label-caps text-gold/60 mt-2">Limited-time investment</p>
+        {isPremium ? (
+          <p className="font-display text-3xl sm:text-4xl text-gold">{priceLabel}</p>
+        ) : (
+          <>
+            {regularPrice && (
+              <p className="text-steel text-lg line-through mb-1">
+                ${regularPrice.toLocaleString()}
+              </p>
+            )}
+            <div className="flex items-baseline gap-2">
+              <span className="font-display text-4xl sm:text-5xl text-gold">
+                ${price?.toLocaleString()}
+              </span>
+              {period && <span className="text-steel text-sm">/{period}</span>}
+            </div>
+            {variant === "audit" && (
+              <p className="label-caps text-gold/60 mt-2">Limited-time investment</p>
+            )}
+          </>
         )}
       </div>
 
@@ -76,13 +93,23 @@ export function PricingCard({
         ))}
       </ul>
 
-      <MagneticButton
-        onClick={openModal}
-        variant={featured ? "primary" : "secondary"}
-        className="w-full"
-      >
-        {cta}
-      </MagneticButton>
+      {href ? (
+        <MagneticButton
+          href={href}
+          variant={featured ? "primary" : "secondary"}
+          className="w-full"
+        >
+          {cta}
+        </MagneticButton>
+      ) : (
+        <MagneticButton
+          onClick={handleCta}
+          variant={featured ? "primary" : "secondary"}
+          className="w-full"
+        >
+          {cta}
+        </MagneticButton>
+      )}
     </motion.article>
   );
 }
