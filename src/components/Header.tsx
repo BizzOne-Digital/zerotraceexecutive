@@ -66,50 +66,57 @@ export function Header() {
             : "bg-gradient-to-b from-midnight/80 to-transparent sm:from-midnight/70"
         )}
       >
-        <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-10">
-          <div className="flex lg:grid lg:grid-cols-[1fr_auto_1fr] items-center justify-between h-[96px] sm:h-[92px] lg:h-[100px] xl:h-[104px] gap-2 sm:gap-4">
+        <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 xl:px-10">
+          <div className="flex items-center justify-between h-[96px] sm:h-[92px] lg:h-[100px] xl:h-[104px] gap-2 sm:gap-3 min-w-0">
             <Link
               href="/"
-              className="relative z-10 justify-self-start min-w-0 flex-shrink"
+              className="relative z-10 shrink-0 min-w-0"
               aria-label="Zerotrace Executive Home"
             >
               <ShieldLogo size="header" variant="header" />
             </Link>
 
-            <nav
-              className="hidden lg:flex items-center justify-center gap-10"
-              aria-label="Main navigation"
-            >
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "relative text-[13px] tracking-[0.15em] uppercase transition-colors duration-300 py-1",
-                    pathname === link.href
-                      ? "text-ivory"
-                      : "text-ivory/55 hover:text-ivory"
-                  )}
-                >
-                  {link.label}
-                  {pathname === link.href && (
-                    <motion.span
-                      layoutId="activeNav"
-                      className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-gold"
-                    />
-                  )}
-                </Link>
-              ))}
-            </nav>
-
-            <div className="hidden lg:flex justify-self-end items-center gap-5">
-              <PhoneLinkPlain className="text-[12px] tracking-wide text-ivory/60 hover:text-gold transition-colors" />
-              <button
-                onClick={openModal}
-                className="px-5 py-2.5 text-[11px] tracking-[0.18em] uppercase font-medium text-gold border border-gold/60 rounded-sm hover:bg-gold/10 hover:border-gold transition-all duration-300"
+            <div className="hidden lg:flex flex-1 items-center min-w-0 ml-4 xl:ml-6">
+              <nav
+                className="flex items-center gap-4 xl:gap-6 2xl:gap-8 shrink-0"
+                aria-label="Main navigation"
               >
-                Request Confidential Audit
-              </button>
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                      "relative text-[11px] xl:text-[12px] 2xl:text-[13px] tracking-[0.12em] xl:tracking-[0.15em] uppercase transition-colors duration-300 py-1 whitespace-nowrap",
+                      pathname === link.href
+                        ? "text-ivory"
+                        : "text-ivory/55 hover:text-ivory"
+                    )}
+                  >
+                    {link.label}
+                    {pathname === link.href && (
+                      <motion.span
+                        layoutId="activeNav"
+                        className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-gold"
+                      />
+                    )}
+                  </Link>
+                ))}
+              </nav>
+
+              <div className="flex-1 min-w-2" aria-hidden="true" />
+
+              <div className="flex items-center gap-3 xl:gap-4 shrink-0">
+                <PhoneLinkPlain
+                  className="text-[11px] xl:text-[12px] tracking-wide text-ivory/60 hover:text-gold transition-colors whitespace-nowrap"
+                />
+                <button
+                  onClick={openModal}
+                  className="px-3 xl:px-5 py-2 xl:py-2.5 text-[10px] xl:text-[11px] tracking-[0.14em] xl:tracking-[0.18em] uppercase font-medium text-gold border border-gold/60 rounded-sm hover:bg-gold/10 hover:border-gold transition-all duration-300 whitespace-nowrap shrink-0"
+                >
+                  <span className="hidden xl:inline">Request Confidential Audit</span>
+                  <span className="xl:hidden">Request Audit</span>
+                </button>
+              </div>
             </div>
 
             <button

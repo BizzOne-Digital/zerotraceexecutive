@@ -25,7 +25,7 @@ export function PhoneLinkPlain({ className, "aria-label": ariaLabel }: PhoneLink
     <a
       href={contact.phoneTelHref}
       aria-label={ariaLabel ?? `Call ${contact.phone}`}
-      className={cn("hover:text-gold transition-colors", className)}
+      className={cn("hover:text-gold transition-colors whitespace-nowrap", className)}
     >
       {contact.phone}
     </a>
